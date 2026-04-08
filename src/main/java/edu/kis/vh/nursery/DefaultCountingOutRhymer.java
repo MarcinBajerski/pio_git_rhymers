@@ -10,25 +10,30 @@ public class DefaultCountingOutRhymer {
 
     public int total = EMPTY_RHYMER_INDICATOR;
 
+    @Override
     public void countIn(int in) {
         if (!isFull())
             numbers[++total] = in;
     }
 
+    @Override
     public boolean callCheck() {
         return total == EMPTY_RHYMER_INDICATOR;
     }
 
+    @Override
     public boolean isFull() {
         return total == FULL_RHYMER_INDICATOR11;
     }
 
+    @Override
     protected int peekaboo() {
         if (callCheck())
             return EMPTY_RHYMER_INDICATOR;
         return numbers[total];
     }
 
+    @Override
     public int countOut() {
         if (callCheck())
             return EMPTY_RHYMER_INDICATOR;
